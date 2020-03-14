@@ -49,12 +49,13 @@ public class DynamicArray {
     private List<List<Integer>> initalizeNnOfSequnce(int n) {
         List<List<Integer>> listofSequences = new ArrayList<>();
         for (int i = 0; i < N; i++) {
-            listofSequences.add(new ArrayList<Integer>(N - 1));
+            listofSequences.add(new ArrayList<Integer>());
         }
         return listofSequences;
     }
 
     public static void main(String[] args) {
+
         DynamicArray dynamicArray=new   DynamicArray(2,5,0);
         dynamicArray.callOperation(1,0,5);
         dynamicArray.callOperation(1,1,7);
