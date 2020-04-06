@@ -8,12 +8,13 @@ public class AlienL {
                 "(abc) (abc) (abc)",
                 "(zyx) bc"};
         for(int p=0;p<pattern.length;p++) {
-            System.out.println("pattern : " +(p+1));
-            getAlienCount(pattern[p]);
+
+            System.out.println("pattern : "+pattern[p] +" :" +getAlienCount(pattern[p]));
         }
     }
 
-    private static void getAlienCount( String pattern) {
+    private static int getAlienCount(String pattern) {
+        int globalCount=0;
         String words[] = {"abc",
                 "bca",
                 "dac",
@@ -24,8 +25,8 @@ public class AlienL {
             char[] wordCharArray = words[j].toCharArray();
             if(!pattern.contains(" ")) {
                 if(words[j].equals(pattern)){
-                    count= pattern.length();
-                    System.out.println(words[j]+ ": "+count);
+                    count++;
+                  //  System.out.println(words[j]+ ": "+count);
                 }
             }
             else {
@@ -42,9 +43,14 @@ public class AlienL {
                         break;
                     }
                 }
-                System.out.println(words[j]+ ": "+count);
+
+            }
+          //  System.out.println(words[j]+ ": "+count);
+            if(count!=0) {
+                globalCount++;
             }
            count=0;
         }
+        return globalCount;
     }
 }
