@@ -76,7 +76,7 @@ class BinarySearchTree
 	} 
 
 	// This method mainly calls insertRec() 
-	void insert(int key) 
+	void insert(int key)
 	{ 
 		root = insertRec(root, key); 
 	} 
