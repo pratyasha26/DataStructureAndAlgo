@@ -1,20 +1,29 @@
-package com.company.programmingBook;
-
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.HashSet;
+import java.util.Scanner;
 
-public class Vestiguim {
+public class Solution {
 
-    public static void main(String args[]){
-        int ar[][]={
-                {1,2,3,4},
-                {2,1,2,4},
-                {1,1,2,3},
-                {1,2,3,4}
-        };
-        int trace=getTraceOfMatrix(ar);
-        int rowCount=getNoOfRepeatedRows(ar);
-        int colCount=getNoOfRepeatedCols(ar);
-        System.out.println("trace :" +trace+ " repeated rows : "+rowCount+" : repeated cols : "+colCount);
+    public static void main(String args[]) {
+
+        Scanner in = new Scanner(new BufferedReader(new InputStreamReader(System.in)));
+        int t = in.nextInt(); // Scanner has functions to read ints, longs, strings, chars, etc.
+        for (int i = 1; i <= t; ++i) {
+            int n = in.nextInt();
+            int ar[][] = new int[n][n];
+            for(int row=0;row<n;row++){
+                for(int col=0;col<n;col++){
+                    ar[col][row]=in.nextInt();
+                }
+            }
+
+            int trace = getTraceOfMatrix(ar);
+            int rowCount = getNoOfRepeatedRows(ar);
+            int colCount = getNoOfRepeatedCols(ar);
+            System.out.println("Case #" + i + ": " + (trace) + " " + (rowCount) + " " + (colCount));
+
+        }
     }
 
     private static int getNoOfRepeatedRows(int[][] ar) {
