@@ -13,21 +13,21 @@ public class Solution {
         int t = in.nextInt();
         for (int i = 1; i <= t; ++i) {
             boolean possibleFlag=false;
-            HashMap<Integer, Integer> map = new HashMap<>();
+            HashMap<Long, Long> map = new HashMap<>();
             int N = in.nextInt();
             int K = in.nextInt();
-            int ar[][] = new int[N][N];
-            for (int index = 1; index <= N; index++) {
+            long ar[][] = new long[N][N];
+            for (long index = 1; index <= N; index++) {
                 if(index == N){
-                    map.put(index,1);
+                    map.put(index,1L);
                 }
                 else {
                     map.put(index, index + 1);
                 }
             }
-            int initialCellValue = 1;
+            Long initialCellValue = 1L;
             while (initialCellValue != N) {
-                int localTracker = initialCellValue;
+                Long localTracker = initialCellValue;
                 for (int col = 0; col < N; col++) {
                     for (int row = 0; row < N; row++) {
 
@@ -57,7 +57,7 @@ public class Solution {
         }
         }
 
-    private static boolean isTraceValueSame(int k, int[][] ar) {
+    private static boolean isTraceValueSame(long k, long[][] ar) {
         int trace=0;
         for (int col = 0; col < ar.length; col++) {
 
@@ -67,8 +67,8 @@ public class Solution {
           return  trace==k;
     }
 
-    private static void setValueOfTheRow(int[][] ar, int col, HashMap<Integer, Integer> map) {
-        int cellvalue=ar[col][0];
+    private static void setValueOfTheRow(long[][] ar, int col, HashMap<Long, Long> map) {
+        long cellvalue=ar[col][0];
         for(int index=0;index<ar.length;index++){
             ar[col][index]=map.get(cellvalue);
             cellvalue=ar[col][index];
